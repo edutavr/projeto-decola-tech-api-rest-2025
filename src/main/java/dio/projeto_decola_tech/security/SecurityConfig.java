@@ -1,4 +1,4 @@
-package dio.projeto_decola_tech.config;
+package dio.projeto_decola_tech.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import dio.projeto_decola_tech.config.JwtAuthFilter;
 
 @Configuration
 @EnableWebSecurity

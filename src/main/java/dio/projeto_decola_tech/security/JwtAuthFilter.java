@@ -1,4 +1,4 @@
-package dio.projeto_decola_tech.config;
+package dio.projeto_decola_tech.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import dio.projeto_decola_tech.models.Users;
-import dio.projeto_decola_tech.services.JwtUtil;
 import io.jsonwebtoken.lang.Collections;
 
 import java.io.IOException;

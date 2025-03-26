@@ -4,7 +4,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import dio.projeto_decola_tech.services.JwtUtil;
+
+import dio.projeto_decola_tech.security.JwtUtil;
 
 @Service
 public class AuthenticationService {

@@ -1,4 +1,4 @@
-package dio.projeto_decola_tech.services;
+package dio.projeto_decola_tech.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
