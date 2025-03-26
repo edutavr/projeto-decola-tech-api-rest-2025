@@ -1,5 +1,7 @@
 package dio.projeto_decola_tech.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ public class PrivateController {
 
     @GetMapping
     public String welcome(@AuthenticationPrincipal Users user) {
-        return "Bem-vindo, " + user.getUsername() + " (Role: " + user.getRole() + ")";
+    // Agora user não será mais null
+        return "Bem-vindo, " + user.getUsername(); 
     }
 }
