@@ -4,19 +4,22 @@ import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class Users implements UserDetails {  // Implementa UserDetails
+public class Users implements UserDetails {  
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column(unique = true, nullable = false)
-    private String username;  // Campo obrigatório
+    private String username;  
     
     @Column(nullable = false)
     private String password;
@@ -24,19 +27,17 @@ public class Users implements UserDetails {  // Implementa UserDetails
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    // ENUM
     public enum Role {
         ROLE_USER, ROLE_ADMIN
     }
 
-    // Métodos obrigatórios do UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
     }
 
     @Override
-    public String getUsername() {  // Método que estava faltando
+    public String getUsername() {  
         return this.username;
     }
 
@@ -60,7 +61,9 @@ public class Users implements UserDetails {  // Implementa UserDetails
         return true;
     }
 
-    // Getters e Setters
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Albuns> albuns = new ArrayList<>();
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     
